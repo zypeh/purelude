@@ -10,6 +10,9 @@ ENV PATH '/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 WORKDIR /root
 
 RUN apt-get update
+RUN apt-get install -y apt-transport-https curl
+RUN apt-get update
+RUN dist-upgrade -y
 RUN mkdir -p ~/.local/bin
 RUN curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 RUN stack build
