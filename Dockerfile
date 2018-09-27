@@ -7,7 +7,7 @@ ENV LANG 'C.UTF-8'
 ENV LC_ALL 'C.UTF-8'
 ENV PATH '/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 
-WORKDIR /root
+WORKDIR /root/purelude
 
 RUN apt-get update
 RUN apt-get install -y apt-transport-https curl
