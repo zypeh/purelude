@@ -10,7 +10,7 @@ jobs:
             - stack-{{ checksum "stack.yaml" }}
       - restore-cache:
           keys:
-            - stack-{{checksum "stack.yaml"}}-{{checksum "project.cabal"}}
+            - stack-{{checksum "stack.yaml"}}-{{checksum "purelude.cabal"}}
       - run:
           name: Installing Stack
           command: |
@@ -29,7 +29,7 @@ jobs:
           paths:
             - "~/.stack"
       - restore-cache:
-          keys: stack-{{checksum "stack.yaml"}}-{{checksum "project.cabal"}}
+          keys: stack-{{checksum "stack.yaml"}}-{{checksum "purelude.cabal"}}
           paths:
             - ".stack-work"
 
