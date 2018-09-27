@@ -24,13 +24,12 @@ jobs:
           command: |
             stack setup --no-terminal
             stack build --no-terminal
-
       - save-cache:
-          key: stack-{{ checksum “stack.yaml” }}
+          key: stack-{{ checksum "stack.yaml" }}
           paths:
             - "~/.stack"
-      - save-cache:
-          keys: stack-{{checksum “stack.yaml”}}-{{checksum “project.cabal”}}
+      - restore-cache:
+          keys: stack-{{checksum "stack.yaml"}}-{{checksum "project.cabal"}}
           paths:
             - ".stack-work"
 
