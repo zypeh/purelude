@@ -1,19 +1,38 @@
 version: 2
       
 jobs:
-  build:
-    filters:
-      branches:
-        only:
-          - master
-          - circleci-integration
-    docker:
-      - image: docker:edge-git
+  build_project:
+    machine: true
     steps:
-      - setup_remote_docker
+      - setup_remote_docker:
+          docker_layer_caching: true
       - checkout
+      - restore-cache:
+          keys:
+            - stack-{{ checksum "stack.yaml" }}
+      - restore-cache:
+          keys:
+            - stack-{{checksum "stack.yaml"}}-{{checksum "project.cabal"}}
       - run:
-          name: Make docker image
-          command: |
-            export REV=$(git rev-parse --short HEAD)
-            docker build -t zypeh/purelude:$REV -t zypeh/purelude:$CIRCLE_BRANCH -t zypeh/purelude:latest .
+        name: Installing Stack
+        command: |
+          wget https://github.com/commercialhaskell/stack/releases/download/v1.7.1/stack-1.7.1-linux-x86_64.tar.gz -O /tmp/stack.tar.gz
+          sudo mkdir /tmp/stack-download
+          sudo tar -xzf /tmp/stack.tar.gz -C /tmp/stack-download
+          sudo chmod +x /tmp/stack-download/stack-1.7.1-linux-x86_64/stack
+          sudo mv /tmp/stack-download/stack-1.7.1-linux-x86_64/stack /usr/bin/stack
+      - run:
+        name: Build Project
+        command: |
+          stack setup --no-terminal
+          stack build --no-terminal
+
+      - save-cache:
+          key: stack-{{ checksum “stack.yaml” }}
+          paths:
+            - "~/.stack"
+      - save-cache:
+          keys: stack-{{checksum “stack.yaml”}}-{{checksum “project.cabal”}}
+          paths:
+            - ".stack-work"
+
