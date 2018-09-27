@@ -5,10 +5,8 @@ jobs:
     branches:
       only:
         - master
-
     docker:
       - image: debian:unstable
-      
     steps:
       - checkout
       - setup_remote_docker:
