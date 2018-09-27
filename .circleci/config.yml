@@ -4,8 +4,6 @@ jobs:
   build_project:
     machine: true
     steps:
-      - setup_remote_docker:
-          docker_layer_caching: true
       - checkout
       - restore-cache:
           keys:
