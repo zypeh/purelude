@@ -1,5 +1,5 @@
 name:                purelude
-version:             0.1.0.0
+version:             0.1.1.0
 -- synopsis:
 -- description:
 homepage:            https://github.com/zypeh/purelude#readme
@@ -20,12 +20,20 @@ Source-Repository head
 library
   exposed-modules:
     Purelude
+    Purelude.Base
+    Purelude.List
 
   default-extensions:
+    NoImplicitPrelude
     OverloadedStrings
 
   ghc-options:
     -Wall
+    -fwarn-implicit-prelude
+
+  build-depends:
+    base     >= 4.6  && <4.12,
+    ghc-prim >= 0.3  && <0.6
 
   hs-source-dirs:   src
   default-language: Haskell2010

@@ -11,7 +11,7 @@ Differences:
 
 
 TODO:
-  [ ]  CircleCI build status
+  [o]  CircleCI build status
   [ ]  IO prelude
   [ ]  Debug related prelude
-  [ ]  Changelogs ready
+  [o]  Changelogs ready
