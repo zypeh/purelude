@@ -1,0 +1,17 @@
+Purelude
+
+Extremely opinionated Haskell Prelude inspired by Protolude, for personal usage.
+
+
+
+Differences:
+* Not so stable
+* Tested on snapshot `lts-12.10` only.
+
+
+
+TODO:
+  [ ]  CircleCI build status
+  [ ]  IO prelude
+  [ ]  Debug related prelude
+  [ ]  Changelogs ready
