@@ -18,5 +18,4 @@ RUN apt autoremove -y
 RUN apt clean -y
 RUN mkdir -p ~/.local/bin
 RUN curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
-RUN stack setup --no-terminal
 RUN stack build --no-system-ghc --only-configure --no-terminal
