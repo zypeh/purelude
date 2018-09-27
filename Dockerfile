@@ -10,7 +10,7 @@ ENV PATH '/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 WORKDIR /root/purelude
 
 RUN apt-get update
-RUN apt-get install -y apt-transport-https curl
+RUN apt-get install -y apt-transport-https curl netbase
 RUN apt-get update
 RUN apt dist-upgrade -y
 RUN mkdir -p ~/.local/bin
