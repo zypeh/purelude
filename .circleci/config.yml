@@ -1,11 +1,12 @@
 version: 2
-
+      
 jobs:
   build:
     filters:
       branches:
         only:
           - master
+          - circleci-integration
     docker:
       - image: docker:edge-git
     steps:

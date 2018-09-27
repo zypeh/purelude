@@ -10,12 +10,15 @@ ENV PATH '/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 WORKDIR /root/purelude
 
 RUN apt update
-RUN apt install -y apt-transport-https curl netbase
+RUN apt install -y apt-transport-https curl netbase make xz-utils
 RUN apt update
 RUN apt dist-upgrade -y
-RUN apt install -y make xz-utils
 RUN apt autoremove -y
 RUN apt clean -y
 RUN mkdir -p ~/.local/bin
-RUN curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+RUN wget https://github.com/commercialhaskell/stack/releases/download/v1.7.1/stack-1.7.1-linux-x86_64.tar.gz -O /tmp/stack.tar.gz
+RUN mkdir /tmp/stack-download
+RUN tar -xzf /tmp/stack.tar.gz -C /tmp/stack-download
+RUN chmod +x /tmp/stack-download/stack-1.7.1-linux-x86_64/stack
+RUN mv /tmp/stack-download/stack-1.7.1-linux-x86_64/stack /root/.local/bin/stack
 RUN stack build --no-system-ghc --only-configure --no-terminal
