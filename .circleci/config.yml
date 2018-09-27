@@ -2,16 +2,16 @@ version: 2
 
 jobs:
   build:
-    branches:
-      only:
-        - master
+    filters:
+      branches:
+        only:
+          - master
     docker:
       - image: debian:unstable
     steps:
-      - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-
+      - checkout
       - run:
           name: Make docker image
           command: |
