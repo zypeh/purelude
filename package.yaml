@@ -1,0 +1,20 @@
+name: purelude
+version: 0.2.0.0
+# synopsis
+# description
+maintainer: Zheng Yan PEH <zypeh.geek@gmail.com>
+github: zypeh/purelude
+license-file: LICENSE
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+
+dependencies:
+  - base
+library:
+  source-dirs: src
+  exposed-modules:
+    - Purelude
+    - Purelude.Base
+    - Purelude.List

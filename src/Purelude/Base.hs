@@ -12,21 +12,4 @@ import System.IO as X (
   , putStr
   , putStrLn
   )
-
-import GHC.Types as X (
-    Bool
-  , Char
-  , Int
-  , Word
-  , IO
-#if ( __GLASGOW_HASKELL__ >= 710 )
-  , Coercible
-#endif
-  )
-
-import GHC.Num as X (
-    Num(..)
-  , Integer
-  , subtract
-  )
   

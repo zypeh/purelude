@@ -1,7 +1,4 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 
-module Purelude.Show (
-    Print(..),
-) where
-
+module Purelude.Show () where
 

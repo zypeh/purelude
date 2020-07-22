@@ -1,39 +1,35 @@
-name:                purelude
-version:             0.1.1.0
--- synopsis:
--- description:
-homepage:            https://github.com/zypeh/purelude#readme
-license:             BSD3
-license-file:        LICENSE
-author:              zypeh
-maintainer:          zypeh.geek@gmail.com
-copyright:           BSD3
-category:            Prelude
-build-type:          Simple
-cabal-version:       >=1.10
-extra-source-files:  README.md CHANGELOG.md
+cabal-version: 1.12
 
-Source-Repository head
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: c26bc8a5f550e946d3b1700b496e8c2517c350bb481ade23faf50ab897ac3c17
+
+name:           purelude
+version:        0.2.0.0
+homepage:       https://github.com/zypeh/purelude#readme
+bug-reports:    https://github.com/zypeh/purelude/issues
+maintainer:     Zheng Yan PEH <zypeh.geek@gmail.com>
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
   type: git
-  location: git@github.com:zypeh/purelude.git
+  location: https://github.com/zypeh/purelude
 
 library
   exposed-modules:
-    Purelude
-    Purelude.Base
-    Purelude.List
-
-  default-extensions:
-    NoImplicitPrelude
-    OverloadedStrings
-
-  ghc-options:
-    -Wall
-    -fwarn-implicit-prelude
-
+      Purelude
+      Purelude.Base
+      Purelude.List
+  other-modules:
+      Purelude.Show
+      Paths_purelude
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat
   build-depends:
-    base     >= 4.6  && <4.12,
-    ghc-prim >= 0.3  && <0.6
-
-  hs-source-dirs:   src
+      base
   default-language: Haskell2010
