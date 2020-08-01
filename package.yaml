@@ -12,6 +12,7 @@ ghc-options:
 
 dependencies:
   - base
+  - safe
 library:
   source-dirs: src
   exposed-modules:

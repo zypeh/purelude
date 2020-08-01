@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c26bc8a5f550e946d3b1700b496e8c2517c350bb481ade23faf50ab897ac3c17
+-- hash: 47cf1ccec8bb1a66545877aee3b1b1a4fc1923b569ddcebb7c95d96b1aec67fc
 
 name:           purelude
 version:        0.2.0.0
@@ -25,11 +25,11 @@ library
       Purelude.Base
       Purelude.List
   other-modules:
-      Purelude.Show
       Paths_purelude
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat
   build-depends:
       base
+    , safe
   default-language: Haskell2010
